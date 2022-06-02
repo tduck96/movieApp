@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+.poster {
+    height: 250px;
+    width: 175px;
+    opacity: .8;
+    border-radius: 10%;
+    border: none;
+    margin-bottom: 1rem;;
+}
+.poster:hover {
+    border: 1px solid white;
+   
+}
+
+.movieButton {
+    border: none;
+    padding: none;
+    outline: none;
+    text-decoration: none;
+   
+}
