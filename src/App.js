@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, BrowserRouter as Router, Routes, Route, Link } from 'react';
 import { v4 as uuidv4} from 'uuid';
 import './App.css';
 import Header from './components/Header/Header'
 import MovieList from './components/MovieList/MovieList';
 import TomsList from './components/Toms List/TomsList';
 import Watchlist from './components/WatchList/Watchlist';
+import Navbar from './components/Navbar';
 
 
 const axios = require('axios');
@@ -87,6 +88,7 @@ id :"2eaf5399-94e2-40b8-9929-7fda5d887a01"
   
   return (
     <div>
+    
   <Header 
   setTitle = {setTitle}
   title={title} 
@@ -95,17 +97,18 @@ id :"2eaf5399-94e2-40b8-9929-7fda5d887a01"
   setmovieInfoList = {setmovieInfoList}
   movieInfo = {movieInfo}/>
 
+<h1> Recently Viewed </h1>
+
+<MovieList 
+movieInfo = {movieInfo}
+/> 
+
 <h1> Tom's Favorites</h1>
  
   <TomsList
   tomsInfo = {tomsInfo} />
 
-<h1> Watchlist</h1>
 
-  <Watchlist 
-  setWatchlist = {setWatchlist}
-  watchList = {watchList}
-  /> 
  
   </div>
   )

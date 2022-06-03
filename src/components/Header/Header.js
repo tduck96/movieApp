@@ -21,7 +21,7 @@ const Header = ( { setTitle, title, movieSearch, setmovieInfoList, movieInfoList
     <nav className = {styles.nav}>
        
       <input value ={title} type = 'search' placeholder='enter movie title' className = {styles.searchbar} onChange = {onChange} ></input>
-      <button type = 'submit' onClick = {onSubmit} className={styles.searchButton}>Search</button>
+      <button type = 'submit' onClick = {onSubmit} className={styles.searchButton}>Add</button>
       
     </nav>
 
