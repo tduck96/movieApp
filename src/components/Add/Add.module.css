@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 2rem;;
+}
+.searchbar {
+    width: 300px;
+    margin-right: 1rem;
+}
+
+.moviecard {
+
+    display: flex;
+    margin: 1rem;
+    width: 50%;
+    color: rgb(210, 210, 210);
+   
+}
+img {
+    height: 200px;
+    width: 150px;
+    margin-right: 1rem;
+    border-radius: 10%;
+    
+}

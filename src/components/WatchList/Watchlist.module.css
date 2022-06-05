@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    padding: 2rem;
+    background-color: black;
+    overflow-x: auto;
+}
+.poster {
+    height: 300px;
+    width: 220px;
+}
+.poster:hover {
+    border: .2px solid white;
+}

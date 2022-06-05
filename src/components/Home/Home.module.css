@@ -1,0 +1,22 @@
+
+.container {
+    display: flex;
+    padding: 2rem;
+    background-color: black;
+    overflow-x: auto;
+    
+}
+.favoritesposter {
+    height: 300px;
+    width: 220px;
+}
+.favoritesposter:hover {
+    border: .2px solid white;
+}
+.homebody {
+    background-color: black;
+    color: white;
+    margin: 2rem;
+   
+}
+

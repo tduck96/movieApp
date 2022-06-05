@@ -1,117 +1,68 @@
-import { useState, useEffect, BrowserRouter as Router, Routes, Route, Link } from 'react';
-import { v4 as uuidv4} from 'uuid';
-import './App.css';
-import Header from './components/Header/Header'
-import MovieList from './components/MovieList/MovieList';
-import TomsList from './components/Toms List/TomsList';
+import React, {useEffect, useState} from 'react'
+import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import Home from './components/Home/Home'
+import Add from './components/Add/Add';
 import Watchlist from './components/WatchList/Watchlist';
-import Navbar from './components/Navbar';
 
+const App = () => {
 
-const axios = require('axios');
+  const [watchList, setWatchList] = useState(JSON.parse(window.localStorage.getItem('watchList')) ?? []);
+  const[favorites, setFavorites] = useState(JSON.parse(window.localStorage.getItem('movie_favorites')) ?? []);
 
-function App() {
-
-  const [title, setTitle] = useState('');
-  const[movieInfo, setmovieInfo] = useState([]);
-  const[movieInfoList, setmovieInfoList] = useState([]);
-  const[tomsInfo, settomsInfo] = useState([]);
-  const[watchList, setWatchlist] = useState([]);
-  
-  async function movieSearch(title){
-     const movieData = await axios.get(`http://www.omdbapi.com/?apikey=1cd6897e&t=${title}`)
-      .then(response => response.data)
-      console.log(movieData)
-      
-     setmovieInfo([
-       ...movieInfo , {
-        title : movieData.Title,
-        plot : movieData.Plot,
-        year : movieData.Year,
-        rated: movieData.Rated,
-        actors: movieData.Actors,
-        poster: movieData.Poster,
-        id : uuidv4()
-       }
-     ])
-  
-  }
 
   useEffect(() => {
-settomsInfo(
- [
-{ actors: "Michael C. Hall, Jennifer Carpenter, David Zayas",
-id: "c77ec010-5fe4-4823-8592-73518de41ee8",
-plot: "He's smart. He's lovable. He's Dexter Morgan, America's favorite serial killer, who spends his days solving crimes and nights committing them. Golden Globe winner Michael C. Hall stars in the hit SHOWTIME Original Series.",
-poster: "https://m.media-amazon.com/images/M/MV5BZjkzMmU5MjMtODllZS00OTA5LTk2ZTEtNjdhYjZhMDA5ZTRhXkEyXkFqcGdeQXVyOTA3MTMyOTk@._V1_SX300.jpg",
-rated: "TV-MA",
-title: "Dexter",
-year: "2006–2013" }, 
+    window.localStorage.setItem('watchList', JSON.stringify(watchList))
+  }, [watchList]);
 
-{
-
-title:"Orphan Black",
-plot:"A streetwise hustler is pulled into a compelling conspiracy after witnessing the suicide of a girl who looks just like her.",
-year: "2013–2017",
-rated:"TV-MA",
-actors: "Tatiana Maslany, Dylan Bruce, Jordan Gavaris",
-poster:"https://m.media-amazon.com/images/M/MV5BZjM1ZTVlMGYtNjVkZS00OGMzLWFjMmYtYTE3NjJhZDRlODY3XkEyXkFqcGdeQXVyNzA5NjUyNjM@._V1_SX300.jpg",
-id :"2eaf5399-94e2-40b8-9929-7fda5d887a01"
-}])
-
-  } , [] );
+  useEffect(() => {
+    window.localStorage.setItem('movie_favorites', JSON.stringify(favorites))
+  },[favorites])
 
 
-  async function tomsSearch(title){
-  
-
-    const movieData = await axios.get(`http://www.omdbapi.com/?apikey=1cd6897e&t=${title}`)
-     .then(response => response.data)
-     console.log(movieData)
-
-
-    settomsInfo([
-      ...tomsInfo , {
-       title : movieData.Title,
-       plot : movieData.Plot,
-       year : movieData.Year,
-       rated: movieData.Rated,
-       actors: movieData.Actors,
-       poster: movieData.Poster,
-       id : uuidv4()
-      }
-    ])
-  
- }
-
- console.log(tomsInfo);
-  
   return (
-    <div>
+    <Router>
+      <nav className ='container'>
+        <div className = 'home'>
+          <Link to ='/' style={{ textDecoration: 'none' }}>Home</Link>
+          </div>
+         <ul className ='nav-list'>
+           <li>
+          <Link to='/watchlist' style={{ textDecoration: 'none' }}>Watchlist</Link>
+          </li>
+         <li>
+      <Link to ='/add' style={{ textDecoration: 'none' }}>Add</Link>
+      </li>
+      </ul>
+      </nav>
+      <Routes>
+        <Route path ='/' element={<Home 
+        favorites ={favorites}
+        watchList={watchList}
+        setWatchList={setWatchList}
+        setFavorites = {setFavorites} />}
+        />
+        
+        <Route path = '/add' element={<Add 
+          watchList = {watchList}
+          setWatchList= {setWatchList}
+          favorites ={favorites}
+          setFavorites={setFavorites}
+
+          />} />
+
+        <Route path ='/watchlist' element =
+        {<Watchlist 
+        watchList = {watchList}
+        setWatchList= {setWatchList}
+        />} 
+        />
+      </Routes>
+
+    </Router>
     
-  <Header 
-  setTitle = {setTitle}
-  title={title} 
-  movieSearch = {movieSearch}
-  movieInfoList = {movieInfoList}
-  setmovieInfoList = {setmovieInfoList}
-  movieInfo = {movieInfo}/>
-
-<h1> Recently Viewed </h1>
-
-<MovieList 
-movieInfo = {movieInfo}
-/> 
-
-<h1> Tom's Favorites</h1>
- 
-  <TomsList
-  tomsInfo = {tomsInfo} />
-
-
- 
-  </div>
   )
 }
 
-export default App;
+export default App
+
