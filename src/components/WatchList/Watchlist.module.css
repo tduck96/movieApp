@@ -1,13 +1,44 @@
-.container {
+.holder {
     display: flex;
     padding: 2rem;
     background-color: black;
     overflow-x: auto;
+   
 }
+
+.card {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.deletebutton {
+    position: absolute;
+    display: none;
+    top: 250px;
+    width: 222px;
+    height: 53px;
+    background-color: rgb(86, 86, 86);
+    color: white;
+    opacity: .9;
+    border-radius: 10%;
+    border: none;
+}
+
+.card:hover .deletebutton {
+    display: block;
+}
+
 .poster {
     height: 300px;
     width: 220px;
 }
 .poster:hover {
     border: .2px solid white;
+    opacity: .5;  
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    color: white;
 }

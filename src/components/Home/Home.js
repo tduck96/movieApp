@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState, useEffect} from 'react';
 // import TomsList from '../Toms List/TomsList';
- import Watchlist from '../WatchList/Watchlist';
- import styles from './Home.module.css';
+import Watchlist from '../WatchList/Watchlist';
+import styles from './Home.module.css';
+import icon from '/Users/thomasduckworth/Documents/movie-list/src/icon.png'
+ 
 
 
 
@@ -20,15 +22,20 @@ return (
   {
       favorites.map(item => (
         <div className = {styles.holder}>
-          <img src = {item.Poster} alt = {item.Title} className={styles.favoritesposter}></img>
+          <img src = {item.Poster} alt = {item.Title} className={styles.favoritesposter}>
+        
+          </img>
           <button onClick = {
-            (listItem) => {
-              const newList =
-              favorites.filter(listItem => listItem.imdbID !== item.imdbID);
-              setFavorites(newList)
+
+          (listItem) => {
+          const newList =
+            favorites.filter(listItem => listItem.imdbID !== item.imdbID);
+            setFavorites(newList)
             }
-          }>delete</button>
+}
+        className = {styles.deletebutton}><img src ={icon} alt ='' className ={styles.icon}></img></button>
           </div>
+        
           
       ))
     }

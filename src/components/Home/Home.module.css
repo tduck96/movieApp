@@ -4,6 +4,7 @@
     padding: 2rem;
     background-color: black;
     overflow-x: auto;
+    box-sizing: border-box;
     
 }
 .favoritesposter {
@@ -12,6 +13,7 @@
 }
 .favoritesposter:hover {
     border: .2px solid white;
+    opacity: .5;
 }
 .homebody {
     background-color: black;
@@ -20,3 +22,33 @@
    
 }
 
+
+.holder {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.deletebutton {
+    position: absolute;
+    display: none;
+    top: 250px;
+    width: 222px;
+    height: 53px;
+    background-color: rgb(86, 86, 86);
+    color: white;
+    opacity: .9;
+    border-radius: 10%;
+    border: none;
+    
+  
+}
+.holder:hover .deletebutton {
+    display: block;
+}
+
+
+.icon {
+    height: 25px;
+    width: 25px;
+    color: white;
+}
