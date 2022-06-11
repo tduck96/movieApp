@@ -37,7 +37,8 @@
     background-color: rgb(86, 86, 86);
     color: white;
     opacity: .9;
-    border-radius: 10%;
+    border-bottom-left-radius: 1.7rem;
+    border-bottom-right-radius: 1.7rem;
     border: none;
     
   

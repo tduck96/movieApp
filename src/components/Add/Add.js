@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import styles from './Add.module.css'
+import search from '/Users/thomasduckworth/Documents/movie-list/src/components/Add/icons8-search-24.png'
+
 const axios = require('axios');
+
 
 
 
@@ -29,12 +32,7 @@ const Add = ({ watchList, setWatchList, favorites, setFavorites }) => {
     
      
  }
- const onSubmit = (e) => {
-   e.preventDefault();
-   movieSearch(title)
-   setTitle('')
 
- }
 
 
 
@@ -52,12 +50,15 @@ useEffect(() => {
 
 
   return (
-      <div >
+      <div>
+        <div className = {styles.letsCenter}>
+        <div className = {styles.holder}>
      <div className = {styles.container}>
-       
-    <input value ={title} type = 'search' placeholder='enter movie title' className = {styles.searchbar} onChange = {onChange}></input>
-    <button type = 'submit' onClick = {onSubmit} className={styles.searchButton}>Search</button>
+    <input value ={title} type = 'search' placeholder='Search' className = {styles.searchbar} onChange = {onChange}></input>
+    <img src = {search} alt = '' className = {styles.searchIcon}></img>
     </div>
+    </div>
+  </div>
 
     {
       movie.map(movie => (
@@ -67,8 +68,10 @@ useEffect(() => {
             
             <p>{movie.Title}</p>
             <p>{movie.Year}</p>
-            <button onClick = { () => addToWatchList(movie)}> Add to Watchlist</button>
-            <button onClick={() => addToFavorites(movie)}>Add to Favorites</button>
+            <div>
+            <button onClick = { () => addToWatchList(movie)} className = {styles.button}> Add to Watchlist</button>
+            <button onClick={() => addToFavorites(movie)} className = {styles.button}>Add to Favorites</button>
+            </div>
 
             </ul>
       
