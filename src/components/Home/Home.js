@@ -1,9 +1,8 @@
 import React from 'react'
-import { useState, useEffect} from 'react';
 // import TomsList from '../Toms List/TomsList';
 import Watchlist from '../WatchList/Watchlist';
 import styles from './Home.module.css';
-import icon from '/Users/thomasduckworth/Documents/movie-list/src/icon.png'
+import icon from './icon.png'
  
 
 

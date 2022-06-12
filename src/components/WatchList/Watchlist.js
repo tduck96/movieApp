@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Watchlist.module.css'
-import icon from '/Users/thomasduckworth/Documents/movie-list/src/icon.png'
+import icon from './icon.png'
 
 const Watchlist = ({watchList, setWatchList}) => {
 

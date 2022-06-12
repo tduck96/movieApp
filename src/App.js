@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Home from './components/Home/Home'
 import Add from './components/Add/Add';
 import Watchlist from './components/WatchList/Watchlist';
-import homeicon from '/Users/thomasduckworth/Documents/movie-list/src/homeicon.png'
 
 const App = () => {
 

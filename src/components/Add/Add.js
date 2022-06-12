@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import styles from './Add.module.css'
-import search from '/Users/thomasduckworth/Documents/movie-list/src/components/Add/icons8-search-24.png'
+import search from './icons8-search-24.png'
 
 const axios = require('axios');
 
