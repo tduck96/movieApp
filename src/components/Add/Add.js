@@ -37,7 +37,7 @@ const Add = ({ watchList, setWatchList, favorites, setFavorites }) => {
 
 
   async function movieSearch(title){
-    const movieData = await axios.get(`http://www.omdbapi.com/?apikey=1cd6897e&s=${title}`)
+    const movieData = await axios.get(`https://www.omdbapi.com/?apikey=1cd6897e&s=${title}`)
      .then(response => response.data)
      if (movieData.Search) {
      setMovie(movieData.Search)
