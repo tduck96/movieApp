@@ -17,11 +17,13 @@ const Add = ({ watchList, setWatchList, favorites, setFavorites }) => {
   const addToWatchList = (movie) => {
     const newWatchlist = [...watchList, movie]
     setWatchList(newWatchlist);
+    alert('Added to Watchlist!')
   }
 
   const addToFavorites = (movie) => {
     const newFavorites = [...favorites, movie]
     setFavorites(newFavorites)
+    alert('Added to Favorites!')
   }
 
 
