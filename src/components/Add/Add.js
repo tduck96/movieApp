@@ -16,14 +16,16 @@ const Add = ({ watchList, setWatchList, favorites, setFavorites }) => {
 
   const addToWatchList = (movie) => {
     const newWatchlist = [...watchList, movie]
-    setWatchList(newWatchlist);
     alert('Added to Watchlist!')
+    setWatchList(newWatchlist);
+    
   }
 
   const addToFavorites = (movie) => {
     const newFavorites = [...favorites, movie]
-    setFavorites(newFavorites)
     alert('Added to Favorites!')
+    setFavorites(newFavorites)
+    
   }
 
 
