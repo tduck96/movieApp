@@ -10,7 +10,6 @@ const App = () => {
   const [watchList, setWatchList] = useState(JSON.parse(window.localStorage.getItem('watchList')) ?? []);
   const[favorites, setFavorites] = useState(JSON.parse(window.localStorage.getItem('movie_favorites')) ?? []);
 
-
   useEffect(() => {
     window.localStorage.setItem('watchList', JSON.stringify(watchList))
   }, [watchList]);
