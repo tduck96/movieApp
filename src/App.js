@@ -13,12 +13,11 @@ const App = () => {
   useEffect(() => {
     window.localStorage.setItem('watchList', JSON.stringify(watchList))
   }, [watchList]);
-
   useEffect(() => {
     window.localStorage.setItem('movie_favorites', JSON.stringify(favorites))
   },[favorites])
 
-
+console.log('hey');
   return (
     <Router>
       <nav className ='container'>
